@@ -4,8 +4,10 @@
   const viewKey = "clean-menu-view-v1";
   const noteKey = "clean-menu-note-v1";
   const langKey = "clean-menu-lang-v1";
+  const themeKey = "clean-menu-theme-v1";
   let selection = readJSON(storageKey, {});
   let language = localStorage.getItem(langKey) || "fr";
+  let theme = localStorage.getItem(themeKey) || "dark";
 
   const translations = {
     fr: {
@@ -15,8 +17,8 @@
       copy: "Copier la liste", clear: "Tout effacer", empty: "Aucun plat sélectionné.<br>Appuyez sur + pour ajouter un plat.",
       added: "Ajouté à votre commande", copied: "Liste copiée",
       noItems: "Vous n’avez sélectionné aucun plat", copyTitle: "LISTE DE COMMANDE", noteLabel: "Note", copyFail: "Impossible de copier automatiquement",
-      dishDetails: "Détails du plat", addOrder: "Ajouter", chefLabel: "Le chef", chefName: "Nom du chef",
-      chefText: "Une cuisine généreuse, préparée avec soin et des produits choisis chaque jour.",
+      dishDetails: "Détails du plat", addOrder: "Ajouter", chefLabel: "Le chef", chefName: "Kieu Nguyen",
+      chefText: "« Vous régaler est ma plus belle joie. »",
       contactLabel: "Contact", contactTitle: "Réserver ou commander", address: "Votre adresse",
       quoteMeaning: "Le bonheur commence autour d’une belle table."
     },
@@ -27,8 +29,8 @@
       copy: "Copy order list", clear: "Clear all", empty: "No dishes selected.<br>Press + to add a dish.",
       added: "Added to your order", copied: "Order list copied",
       noItems: "You haven’t selected any dishes", copyTitle: "ORDER LIST", noteLabel: "Note", copyFail: "Unable to copy automatically",
-      dishDetails: "Dish details", addOrder: "Add to order", chefLabel: "The chef", chefName: "Chef’s name",
-      chefText: "Generous food, carefully prepared with ingredients selected each day.",
+      dishDetails: "Dish details", addOrder: "Add to order", chefLabel: "The chef", chefName: "Kieu Nguyen",
+      chefText: "“Bringing you joy through every dish is my greatest pleasure.”",
       contactLabel: "Contact", contactTitle: "Book or order", address: "Your address",
       quoteMeaning: "Happiness begins around a beautiful table."
     }
@@ -126,6 +128,15 @@
     renderMenu();
     renderSelection();
     if (detailItem) renderDetail();
+  }
+
+  function applyTheme() {
+    document.documentElement.dataset.theme = theme;
+    document.querySelectorAll("[data-theme-choice]").forEach(button => {
+      const active = button.dataset.themeChoice === theme;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
   }
 
   function renderDetail() {
@@ -243,6 +254,12 @@
     applyLanguage();
   }));
 
+  document.querySelectorAll("[data-theme-choice]").forEach(button => button.addEventListener("click", () => {
+    theme = button.dataset.themeChoice;
+    localStorage.setItem(themeKey, theme);
+    applyTheme();
+  }));
+
   document.querySelector("#clearSelection").addEventListener("click", () => {
     selection = {};
     note.value = "";
@@ -264,6 +281,7 @@
     }
   });
 
+  applyTheme();
   applyLanguage();
   if (localStorage.getItem(viewKey) === "list") document.querySelector('[data-view="list"]').click();
 })();
