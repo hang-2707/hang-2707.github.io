@@ -28,6 +28,10 @@ button { color: inherit; }
 }
 .brand { display: inline-flex; align-items: center; gap: .65rem; color: var(--ink); text-decoration: none; font-weight: 850; letter-spacing: .11em; }
 .brand-mark { display: grid; place-items: center; width: 2rem; aspect-ratio: 1; border-radius: .65rem; background: var(--ink); color: var(--accent); letter-spacing: 0; }
+.header-actions { display: flex; align-items: center; gap: .55rem; }
+.language-switch { display: flex; padding: .2rem; border: 1px solid var(--line); border-radius: 999px; background: white; }
+.language-button { min-width: 2.35rem; height: 2rem; padding: 0 .55rem; border: 0; border-radius: 999px; background: transparent; font-size: .75rem; font-weight: 850; cursor: pointer; }
+.language-button.active { background: var(--accent); }
 .selection-button { border: 0; border-radius: 999px; background: var(--ink); color: white; padding: .72rem .8rem .72rem 1rem; font-weight: 750; cursor: pointer; }
 .selection-button span { display: inline-grid; place-items: center; min-width: 1.7rem; height: 1.7rem; margin-left: .45rem; padding: 0 .35rem; border-radius: 999px; color: var(--ink); background: var(--accent); }
 
@@ -87,8 +91,8 @@ main { max-width: 1200px; margin: auto; padding: 0 clamp(1rem, 4vw, 3rem) 5rem; 
 .copy-button, .clear-button { width: 100%; border-radius: .9rem; padding: .95rem; font-weight: 800; cursor: pointer; }
 .copy-button { border: 0; background: var(--ink); color: white; }
 .clear-button { margin-top: .55rem; border: 1px solid var(--line); background: transparent; }
-.toast { position: fixed; left: 50%; bottom: 1.25rem; z-index: 50; transform: translate(-50%, 1rem); padding: .75rem 1rem; border-radius: 999px; background: var(--ink); color: white; font-weight: 700; opacity: 0; pointer-events: none; transition: .2s; }
-.toast.show { opacity: 1; transform: translate(-50%, 0); }
+.toast { position: fixed; top: 5.25rem; right: 1rem; z-index: 50; max-width: min(22rem, calc(100vw - 2rem)); transform: translateX(calc(100% + 2rem)); padding: .85rem 1rem; border-radius: .85rem; background: var(--ink); color: white; font-weight: 700; box-shadow: 0 14px 35px rgba(17,19,15,.22); opacity: 0; pointer-events: none; transition: .24s; }
+.toast.show { opacity: 1; transform: translateX(0); }
 
 button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 @media (max-width: 760px) {
@@ -100,6 +104,8 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outlin
 }
 @media (max-width: 480px) {
   .topbar { padding: .8rem 1rem; }
+  .brand > span:last-child { display: none; }
+  .selection-button { padding-left: .75rem; }
   main { padding-inline: .8rem; }
   .intro h1 { font-size: clamp(3.25rem, 20vw, 5.1rem); }
   .menu-grid { gap: .7rem; }
