@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#11130f">
+  <meta name="description" content="Menu món ăn — xem giá và ghi lại món bạn muốn chọn.">
+  <title>Menu hôm nay</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2311130f'/%3E%3Cpath d='M18 19v13c0 5 3 8 7 8v9h5V19h-4v12h-3V19zm25 0c-6 3-8 9-8 16 0 4 2 7 5 8v6h5V19z' fill='%23f4bc52'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Về đầu trang">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <span>MENU</span>
+    </a>
+    <button class="selection-button" id="openSelection" type="button" aria-haspopup="dialog">
+      Đã chọn <span id="selectionCount">0</span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="pageTitle">
+      <p class="eyebrow">Món ngon mỗi ngày</p>
+      <h1 id="pageTitle">Hôm nay<br>ăn gì?</h1>
+      <p class="intro-copy">Chọn món bạn thích, ghi chú thêm nếu cần rồi gửi danh sách cho chúng tôi.</p>
+    </section>
+
+    <section class="menu-section" aria-labelledby="menuTitle">
+      <div class="section-head">
+        <h2 id="menuTitle">Thực đơn</h2>
+        <div class="view-switch" role="group" aria-label="Kiểu hiển thị">
+          <button class="view-button active" type="button" data-view="grid" aria-pressed="true" title="Dạng ô lưới">
+            <span aria-hidden="true">▦</span><span class="sr-only">Ô lưới</span>
+          </button>
+          <button class="view-button" type="button" data-view="list" aria-pressed="false" title="Dạng danh sách">
+            <span aria-hidden="true">☷</span><span class="sr-only">Danh sách</span>
+          </button>
+        </div>
+      </div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+  </main>
+
+  <aside class="selection-panel" id="selectionPanel" aria-labelledby="selectionTitle" aria-hidden="true">
+    <div class="panel-backdrop" data-close-panel></div>
+    <div class="panel-card" role="dialog" aria-modal="true">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Danh sách của bạn</p>
+          <h2 id="selectionTitle">Món đã chọn</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-panel aria-label="Đóng">×</button>
+      </div>
+      <div class="selected-items" id="selectedItems"></div>
+      <label class="note-field">
+        <span>Ghi chú</span>
+        <textarea id="orderNote" rows="3" placeholder="Ví dụ: giao lúc 18:30, ít cay..."></textarea>
+      </label>
+      <div class="total-row"><span>Tạm tính</span><strong id="selectionTotal">0 ₫</strong></div>
+      <button class="copy-button" id="copySelection" type="button">Sao chép danh sách</button>
+      <button class="clear-button" id="clearSelection" type="button">Xóa tất cả</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="menu-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
