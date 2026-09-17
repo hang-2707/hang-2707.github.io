@@ -288,3 +288,83 @@ body {
   background: #ffd34b;
   transform: rotate(-12deg);
 }
+
+/* French fine-dining theme */
+:root {
+  --ink: #f7f0df;
+  --muted: #b7ad9d;
+  --paper: #090908;
+  --card: #121210;
+  --accent: #c8a96a;
+  --accent-soft: #ead29a;
+  --berry: #701f2b;
+  --line: rgba(226,205,157,.18);
+}
+body {
+  color: var(--ink);
+  background: radial-gradient(circle at 12% 5%, rgba(112,31,43,.24) 0, transparent 32rem), radial-gradient(circle at 92% 35%, rgba(176,135,67,.12) 0, transparent 34rem), linear-gradient(145deg, #080808 0%, #11100e 50%, #080807 100%);
+}
+.topbar {
+  background: rgba(8,8,7,.9);
+  color: var(--ink);
+  border-color: rgba(226,205,157,.13);
+  box-shadow: 0 8px 40px rgba(0,0,0,.3);
+}
+.brand { color: var(--ink); }
+.brand-mark, .selection-button, .detail-add {
+  background: linear-gradient(135deg, #7b2331, #4c111b);
+}
+.brand-mark { color: #f4dda5; border: 1px solid rgba(234,210,154,.45); }
+.brand-mark::after { background: #d4b56f; }
+.language-switch { border-color: rgba(226,205,157,.18); background: rgba(255,255,255,.04); }
+.language-button { color: #d8cdb9; }
+.language-button.active { background: #c8a96a; color: #17120a; }
+.selection-button { box-shadow: 0 8px 25px rgba(74,12,25,.35); }
+.selection-button span:last-child { background: #d1b16d; color: #181208; }
+.intro {
+  background: linear-gradient(135deg, rgba(28,27,23,.96), rgba(12,12,11,.88));
+  border-color: rgba(226,205,157,.15);
+  box-shadow: 0 25px 75px rgba(0,0,0,.35);
+}
+.intro-copy { color: #b7ad9d; }
+.eyebrow { color: #c8a96a; }
+.view-switch { background: #171612; border-color: rgba(226,205,157,.18); }
+.view-button { color: #d8cdb9; }
+.view-button.active { background: #c8a96a; color: #17120a; }
+.menu-card {
+  color: var(--ink);
+  background: linear-gradient(150deg, rgba(28,27,23,.98), rgba(12,12,11,.98));
+  border-color: rgba(226,205,157,.14);
+  box-shadow: 0 20px 50px rgba(0,0,0,.33);
+}
+.menu-card:hover { box-shadow: 0 25px 60px rgba(0,0,0,.48); }
+.dish-price, .selected-row small, .total-row strong, .detail-price { color: #d7b975; }
+.add-button {
+  background: linear-gradient(135deg, #c7a866, #997438);
+  color: #17120a;
+  box-shadow: 0 8px 22px rgba(161,120,54,.23);
+}
+.panel-card, .detail-card {
+  color: var(--ink);
+  background: linear-gradient(160deg, #181713, #0b0b0a);
+}
+.panel-head, .selected-row { border-color: rgba(226,205,157,.14); }
+.empty-selection { color: #9f9688; }
+.note-field textarea { color: var(--ink); background: #11110f; border-color: rgba(226,205,157,.18); }
+.quantity button, .icon-button { color: var(--ink); background: #1b1a17; border-color: rgba(226,205,157,.2); }
+.copy-button { background: linear-gradient(135deg, #7b2331, #54141e); }
+.clear-button { color: #d8cdb9; background: transparent; border-color: rgba(226,205,157,.2); }
+.detail-add { color: white; }
+.detail-add b { background: #c8a96a; }
+.chef-card {
+  color: var(--ink);
+  background: linear-gradient(145deg, #26231d, #12110e);
+}
+.contact-card {
+  color: var(--ink);
+  background: linear-gradient(145deg, #4c151f, #210b10);
+}
+.footer-card { border-color: rgba(226,205,157,.18); box-shadow: 0 25px 60px rgba(0,0,0,.3); }
+.footer-card .eyebrow { color: #c8a96a; }
+.footer-card > p:last-child { color: #b7ad9d; }
+.contact-card .eyebrow, .contact-card a, .contact-card span { color: #ead9b3; }
