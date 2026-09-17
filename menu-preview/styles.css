@@ -526,7 +526,9 @@ html[data-theme="light"] .contact-card { color: #fff7e5; background: linear-grad
   line-height: 1.7;
 }
 .gratitude-hands {
-  width: min(100%, 22rem);
+  width: min(100%, 12rem);
+  height: auto;
+  object-fit: contain;
   justify-self: end;
   filter: drop-shadow(0 1rem 2rem rgba(0,0,0,.28));
 }
@@ -536,5 +538,5 @@ html[data-theme="light"] .thank-you-card {
 }
 @media (max-width: 620px) {
   .thank-you-card { grid-template-columns: 1fr; }
-  .gratitude-hands { width: min(85%, 19rem); margin: -1rem auto -2rem; justify-self: center; }
+  .gratitude-hands { width: min(55%, 9rem); margin: .25rem auto -.5rem; justify-self: center; }
 }
