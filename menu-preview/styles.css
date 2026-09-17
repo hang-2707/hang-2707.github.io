@@ -437,6 +437,8 @@ body {
   border: 1px solid rgba(226,205,157,.18);
   border-radius: 999px;
   background: rgba(255,255,255,.04);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(200,169,106,.16), 0 6px 18px rgba(0,0,0,.18);
 }
 .theme-button {
   display: grid;
@@ -496,4 +498,9 @@ html[data-theme="light"] .contact-card { color: #fff7e5; background: linear-grad
   .header-actions { gap: .3rem; }
   .theme-button { width: 1.8rem; height: 1.8rem; }
   .language-button { min-width: 2rem; padding: 0 .4rem; }
+}
+@media (max-width: 410px) {
+  .selection-button > [data-i18n="selected"] { display: none; }
+  .selection-button { padding: .5rem; }
+  .selection-button span:last-child { margin-left: 0; }
 }
