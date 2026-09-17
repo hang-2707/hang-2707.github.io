@@ -17,7 +17,8 @@
       noItems: "Vous n’avez sélectionné aucun plat", copyTitle: "LISTE DE COMMANDE", noteLabel: "Note", copyFail: "Impossible de copier automatiquement",
       dishDetails: "Détails du plat", addOrder: "Ajouter", chefLabel: "Le chef", chefName: "Nom du chef",
       chefText: "Une cuisine généreuse, préparée avec soin et des produits choisis chaque jour.",
-      contactLabel: "Contact", contactTitle: "Réserver ou commander", address: "Votre adresse"
+      contactLabel: "Contact", contactTitle: "Réserver ou commander", address: "Votre adresse",
+      quoteMeaning: "Le bonheur commence autour d’une belle table."
     },
     en: {
       selected: "Order", eyebrow: "Today’s dishes", title: "What shall<br>we eat?",
@@ -28,7 +29,8 @@
       noItems: "You haven’t selected any dishes", copyTitle: "ORDER LIST", noteLabel: "Note", copyFail: "Unable to copy automatically",
       dishDetails: "Dish details", addOrder: "Add to order", chefLabel: "The chef", chefName: "Chef’s name",
       chefText: "Generous food, carefully prepared with ingredients selected each day.",
-      contactLabel: "Contact", contactTitle: "Book or order", address: "Your address"
+      contactLabel: "Contact", contactTitle: "Book or order", address: "Your address",
+      quoteMeaning: "Happiness begins around a beautiful table."
     }
   };
 
