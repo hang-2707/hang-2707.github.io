@@ -270,12 +270,12 @@ body {
   width: 2.35rem;
   overflow: visible;
   font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   font-style: italic;
   line-height: 1;
-  text-shadow: 1px 2px 0 rgba(110,24,12,.18);
-  transform: rotate(-7deg);
+  text-shadow: 1px 2px 0 rgba(110,24,12,.18), 0 0 12px rgba(234,210,154,.16);
+  transform: rotate(-9deg) translateY(-1px);
 }
 .brand-mark::after {
   content: "";
@@ -287,6 +287,11 @@ body {
   border-radius: 999px;
   background: #ffd34b;
   transform: rotate(-12deg);
+}
+.chef-signature {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 2vw, 1.35rem) !important;
+  font-style: italic;
 }
 
 /* French fine-dining theme */
@@ -424,4 +429,71 @@ body {
 @media (max-width: 760px) {
   .french-quote { min-height: 11rem; padding: 2rem 1.3rem; }
   .quote-ornament { right: -8%; }
+}
+
+.theme-switch {
+  display: flex;
+  padding: .2rem;
+  border: 1px solid rgba(226,205,157,.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+}
+.theme-button {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #b7ad9d;
+  cursor: pointer;
+}
+.theme-button.active { background: #c8a96a; color: #17120a; }
+
+html[data-theme="light"] {
+  --ink: #2b241b;
+  --muted: #766b5d;
+  --paper: #f8f2e7;
+  --card: #fffaf0;
+  --line: rgba(91,70,38,.16);
+}
+html[data-theme="light"] body {
+  color: var(--ink);
+  background: radial-gradient(circle at 8% 7%, rgba(122,31,45,.12) 0, transparent 30rem), radial-gradient(circle at 92% 30%, rgba(202,165,91,.2) 0, transparent 34rem), linear-gradient(145deg, #fffaf0 0%, #eee3cf 50%, #faf5ea 100%);
+}
+html[data-theme="light"] .topbar { background: rgba(255,250,240,.91); color: var(--ink); border-color: rgba(91,70,38,.12); }
+html[data-theme="light"] .brand { color: var(--ink); }
+html[data-theme="light"] .theme-switch,
+html[data-theme="light"] .language-switch { background: rgba(91,70,38,.06); border-color: rgba(91,70,38,.12); }
+html[data-theme="light"] .theme-button,
+html[data-theme="light"] .language-button { color: #5f5548; }
+html[data-theme="light"] .theme-button.active,
+html[data-theme="light"] .language-button.active { background: #c8a96a; color: #21190d; }
+html[data-theme="light"] .intro { color: var(--ink); background: linear-gradient(135deg, rgba(255,252,244,.98), rgba(239,226,203,.92)); border-color: rgba(91,70,38,.12); box-shadow: 0 24px 65px rgba(88,64,29,.12); }
+html[data-theme="light"] .intro-copy { color: var(--muted); }
+html[data-theme="light"] .view-switch { background: #3b342a; }
+html[data-theme="light"] .menu-card { color: var(--ink); background: linear-gradient(150deg, #fffdf8, #f2e8d7); border-color: rgba(91,70,38,.12); box-shadow: 0 18px 45px rgba(88,64,29,.12); }
+html[data-theme="light"] .panel-card,
+html[data-theme="light"] .detail-card { color: var(--ink); background: linear-gradient(160deg, #fffdf8, #eee3cf); }
+html[data-theme="light"] .panel-head,
+html[data-theme="light"] .selected-row { border-color: rgba(91,70,38,.13); }
+html[data-theme="light"] .empty-selection { color: var(--muted); }
+html[data-theme="light"] .note-field textarea { color: var(--ink); background: #fffdf9; border-color: rgba(91,70,38,.16); }
+html[data-theme="light"] .quantity button,
+html[data-theme="light"] .icon-button { color: var(--ink); background: #fffdf9; border-color: rgba(91,70,38,.16); }
+html[data-theme="light"] .clear-button { color: var(--ink); border-color: rgba(91,70,38,.18); }
+html[data-theme="light"] .french-quote { background: linear-gradient(110deg, rgba(112,31,43,.12), rgba(255,252,244,.96) 55%, rgba(176,135,67,.16)); border-color: rgba(91,70,38,.13); box-shadow: 0 20px 50px rgba(88,64,29,.1); }
+html[data-theme="light"] .french-quote blockquote { color: #5f2430; }
+html[data-theme="light"] .french-quote p,
+html[data-theme="light"] .detail-quote { color: #766b5d; }
+html[data-theme="light"] .quote-ornament { color: rgba(112,31,43,.07); }
+html[data-theme="light"] .chef-card { color: var(--ink); background: linear-gradient(145deg, #f4e7ca, #dcc292); }
+html[data-theme="light"] .contact-card { color: #fff7e5; background: linear-gradient(145deg, #742333, #3d1119); }
+
+@media (max-width: 520px) {
+  .header-actions { gap: .3rem; }
+  .theme-button { width: 1.8rem; height: 1.8rem; }
+  .language-button { min-width: 2rem; padding: 0 .4rem; }
 }
