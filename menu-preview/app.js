@@ -1,6 +1,5 @@
 (() => {
   const items = Array.isArray(window.MENU_ITEMS) ? window.MENU_ITEMS : [];
-  const money = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND", maximumFractionDigits: 0 });
   const storageKey = "clean-menu-selection-v1";
   const viewKey = "clean-menu-view-v1";
   const noteKey = "clean-menu-note-v1";
@@ -16,7 +15,9 @@
       copy: "Copier la liste", clear: "Tout effacer", empty: "Aucun plat sélectionné.<br>Appuyez sur + pour ajouter un plat.",
       added: "Ajouté à votre commande", copied: "Liste copiée",
       noItems: "Vous n’avez sélectionné aucun plat", copyTitle: "LISTE DE COMMANDE", noteLabel: "Note", copyFail: "Impossible de copier automatiquement",
-      dishDetails: "Détails du plat", addOrder: "Ajouter"
+      dishDetails: "Détails du plat", addOrder: "Ajouter", chefLabel: "Le chef", chefName: "Nom du chef",
+      chefText: "Une cuisine généreuse, préparée avec soin et des produits choisis chaque jour.",
+      contactLabel: "Contact", contactTitle: "Réserver ou commander", address: "Votre adresse"
     },
     en: {
       selected: "Selected", eyebrow: "Today’s dishes", title: "What shall<br>we eat?",
@@ -25,7 +26,9 @@
       copy: "Copy order list", clear: "Clear all", empty: "No dishes selected.<br>Press + to add a dish.",
       added: "Added to your order", copied: "Order list copied",
       noItems: "You haven’t selected any dishes", copyTitle: "ORDER LIST", noteLabel: "Note", copyFail: "Unable to copy automatically",
-      dishDetails: "Dish details", addOrder: "Add to order"
+      dishDetails: "Dish details", addOrder: "Add to order", chefLabel: "The chef", chefName: "Chef’s name",
+      chefText: "Generous food, carefully prepared with ingredients selected each day.",
+      contactLabel: "Contact", contactTitle: "Book or order", address: "Your address"
     }
   };
 
@@ -41,6 +44,12 @@
   let detailImageIndex = 0;
 
   function dishName(item) { return language === "fr" ? item.nameFr : item.nameEn; }
+  function money(value) {
+    const config = language === "fr"
+      ? { locale: "fr-FR", currency: "EUR" }
+      : { locale: "en-US", currency: "USD" };
+    return new Intl.NumberFormat(config.locale, { style: "currency", currency: config.currency, minimumFractionDigits: 0, maximumFractionDigits: 2 }).format(value);
+  }
 
   function readJSON(key, fallback) {
     try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
@@ -61,7 +70,7 @@
         <div class="dish-body">
           <div>
             <h3 class="dish-name">${dishName(item)}</h3>
-            <p class="dish-price">${money.format(item.price)}</p>
+            <p class="dish-price">${money(item.price)}</p>
           </div>
           <button class="add-button" type="button" data-add="${item.id}" aria-label="${dishName(item)}">+</button>
         </div>
@@ -79,10 +88,10 @@
     const itemCount = chosen.reduce((sum, item) => sum + selection[item.id], 0);
     const orderTotal = chosen.reduce((sum, item) => sum + item.price * selection[item.id], 0);
     count.textContent = itemCount;
-    total.textContent = money.format(orderTotal);
+    total.textContent = money(orderTotal);
     selectedItems.innerHTML = chosen.length ? chosen.map(item => `
       <div class="selected-row">
-        <div><p>${dishName(item)}</p><small>${money.format(item.price)}</small></div>
+        <div><p>${dishName(item)}</p><small>${money(item.price)}</small></div>
         <div class="quantity" aria-label="${dishName(item)}">
           <button type="button" data-minus="${item.id}" aria-label="Bớt một">−</button>
           <strong>${selection[item.id]}</strong>
@@ -121,7 +130,7 @@
     if (!detailItem) return;
     const images = detailItem.images || [];
     document.querySelector("#detailName").textContent = dishName(detailItem);
-    document.querySelector("#detailPrice").textContent = money.format(detailItem.price);
+    document.querySelector("#detailPrice").textContent = money(detailItem.price);
     document.querySelector("#detailImageWrap").innerHTML = images.map((src, index) => `
       <div class="detail-slide${index === detailImageIndex ? " active" : ""}">
         <img src="${src}" alt="${dishName(detailItem)} — ${index + 1}">
