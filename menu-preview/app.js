@@ -18,8 +18,9 @@
       added: "Ajouté à votre commande", copied: "Liste copiée",
       noItems: "Vous n’avez sélectionné aucun plat", copyTitle: "LISTE DE COMMANDE", noteLabel: "Note", copyFail: "Impossible de copier automatiquement",
       dishDetails: "Détails du plat", addOrder: "Ajouter", chefLabel: "Le chef", chefName: "Kieu Nguyen",
-      chefText: "« Vous régaler est ma plus belle joie. »",
-      contactLabel: "Contact", contactTitle: "Réserver ou commander", address: "Votre adresse",
+      chefText: "« Votre plaisir à table est ma plus belle joie. »",
+      contactLabel: "Contact", thanksLabel: "Merci", thanksTitle: "Merci pour votre confiance",
+      thanksText: "Merci d’avoir choisi mes plats. Chaque commande est préparée avec soin et une sincère gratitude. Bon appétit !",
       quoteMeaning: "Le bonheur commence autour d’une belle table."
     },
     en: {
@@ -30,8 +31,9 @@
       added: "Added to your order", copied: "Order list copied",
       noItems: "You haven’t selected any dishes", copyTitle: "ORDER LIST", noteLabel: "Note", copyFail: "Unable to copy automatically",
       dishDetails: "Dish details", addOrder: "Add to order", chefLabel: "The chef", chefName: "Kieu Nguyen",
-      chefText: "“Bringing you joy through every dish is my greatest pleasure.”",
-      contactLabel: "Contact", contactTitle: "Book or order", address: "Your address",
+      chefText: "“Your happiness at the table is my greatest joy.”",
+      contactLabel: "Contact", thanksLabel: "Thank you", thanksTitle: "Thank you for your trust",
+      thanksText: "Thank you for choosing my dishes. Every order is prepared with care and sincere gratitude. Enjoy your meal!",
       quoteMeaning: "Happiness begins around a beautiful table."
     }
   };

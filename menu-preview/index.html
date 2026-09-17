@@ -7,7 +7,7 @@
   <meta name="description" content="Menu món ăn — xem giá và ghi lại món bạn muốn chọn.">
   <title>Menu hôm nay</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2311130f'/%3E%3Cpath d='M18 19v13c0 5 3 8 7 8v9h5V19h-4v12h-3V19zm25 0c-6 3-8 9-8 16 0 4 2 7 5 8v6h5V19z' fill='%23f4bc52'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css?v=14">
+  <link rel="stylesheet" href="styles.css?v=16">
 </head>
 <body>
   <header class="topbar">
@@ -60,18 +60,17 @@
 
     <footer class="footer-grid">
       <section class="footer-card chef-card">
-        <p class="eyebrow" data-i18n="chefLabel">Le chef</p>
+        <p class="eyebrow" data-i18n="contactLabel">Contact</p>
         <h2 data-i18n="chefName">Kieu Nguyen</h2>
         <p class="chef-signature" data-i18n="chefText">« Vous régaler est ma plus belle joie. »</p>
       </section>
-      <section class="footer-card contact-card">
-        <p class="eyebrow" data-i18n="contactLabel">Contact</p>
-        <h2 data-i18n="contactTitle">Réserver ou commander</h2>
-        <div class="contact-lines">
-          <a href="tel:+0000000000">+00 00 00 00 00</a>
-          <a href="mailto:bonjour@votremenu.com">bonjour@votremenu.com</a>
-          <span data-i18n="address">Votre adresse</span>
+      <section class="footer-card thank-you-card">
+        <div class="thank-you-copy">
+          <p class="eyebrow" data-i18n="thanksLabel">Merci</p>
+          <h2 data-i18n="thanksTitle">Merci pour votre confiance</h2>
+          <p data-i18n="thanksText">Merci d’avoir choisi mes plats. Chaque commande est préparée avec soin et une sincère gratitude. Bon appétit !</p>
         </div>
+        <img class="gratitude-hands" src="images/gratitude-hands.webp" alt="" loading="lazy">
       </section>
     </footer>
   </main>
@@ -118,7 +117,7 @@
   </aside>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="menu-data.js?v=15"></script>
-  <script src="app.js?v=15"></script>
+  <script src="menu-data.js?v=16"></script>
+  <script src="app.js?v=16"></script>
 </body>
 </html>

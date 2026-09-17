@@ -504,3 +504,37 @@ html[data-theme="light"] .contact-card { color: #fff7e5; background: linear-grad
   .selection-button { padding: .5rem; }
   .selection-button span:last-child { margin-left: 0; }
 }
+
+.thank-you-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(10rem, .7fr);
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+  color: var(--ink);
+  background: linear-gradient(145deg, #4c151f, #210b10);
+}
+.thank-you-copy { position: relative; z-index: 1; }
+.thank-you-card h2 { max-width: 11ch; }
+.thank-you-card .eyebrow { color: #d9bb79; }
+.thank-you-card p:last-child {
+  max-width: 34rem;
+  margin: 0;
+  color: #d5c6aa;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.gratitude-hands {
+  width: min(100%, 22rem);
+  justify-self: end;
+  filter: drop-shadow(0 1rem 2rem rgba(0,0,0,.28));
+}
+html[data-theme="light"] .thank-you-card {
+  color: #fff7e5;
+  background: linear-gradient(145deg, #742333, #3d1119);
+}
+@media (max-width: 620px) {
+  .thank-you-card { grid-template-columns: 1fr; }
+  .gratitude-hands { width: min(85%, 19rem); margin: -1rem auto -2rem; justify-self: center; }
+}
