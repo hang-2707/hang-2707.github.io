@@ -9,7 +9,7 @@
 
   const translations = {
     fr: {
-      selected: "Sélection", eyebrow: "Les plats du jour", title: "On mange<br>quoi ?",
+      selected: "Order", eyebrow: "Les plats du jour", title: "On mange<br>quoi ?",
       intro: "Choisissez vos plats, ajoutez une note et envoyez-nous votre liste.", menu: "Menu",
       yourList: "Votre liste", chosen: "Plats choisis", note: "Note", subtotal: "Sous-total",
       copy: "Copier la liste", clear: "Tout effacer", empty: "Aucun plat sélectionné.<br>Appuyez sur + pour ajouter un plat.",
@@ -20,7 +20,7 @@
       contactLabel: "Contact", contactTitle: "Réserver ou commander", address: "Votre adresse"
     },
     en: {
-      selected: "Selected", eyebrow: "Today’s dishes", title: "What shall<br>we eat?",
+      selected: "Order", eyebrow: "Today’s dishes", title: "What shall<br>we eat?",
       intro: "Choose your dishes, add a note and send us your list.", menu: "Menu",
       yourList: "Your list", chosen: "Selected dishes", note: "Note", subtotal: "Subtotal",
       copy: "Copy order list", clear: "Clear all", empty: "No dishes selected.<br>Press + to add a dish.",
