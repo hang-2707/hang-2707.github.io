@@ -6,20 +6,20 @@ window.MENU_ITEMS = [
     nameFr: "Plat spécial 01",
     nameEn: "Special dish 01",
     price: 35000,
-    image: "images/mon-01.jpg"
+    images: ["images/mon-01-1.jpg", "images/mon-01-2.jpg", "images/mon-01-3.jpg"]
   },
   {
     id: "mon-02",
     nameFr: "Plat spécial 02",
     nameEn: "Special dish 02",
     price: 45000,
-    image: "images/mon-02.jpg"
+    images: ["images/mon-02-1.jpg", "images/mon-02-2.jpg", "images/mon-02-3.jpg"]
   },
   {
     id: "mon-03",
     nameFr: "Plat spécial 03",
     nameEn: "Special dish 03",
     price: 55000,
-    image: "images/mon-03.jpg"
+    images: ["images/mon-03-1.jpg", "images/mon-03-2.jpg", "images/mon-03-3.jpg"]
   }
 ];
