@@ -206,3 +206,24 @@ body {
 @media (max-width: 760px) {
   .intro { padding: 2.2rem 1.2rem; border-radius: 0 0 1.6rem 1.6rem; margin-top: 0; }
 }
+
+/* Brighter glass version */
+body {
+  background: radial-gradient(circle at 5% 8%, #ff9cad 0, transparent 30rem), radial-gradient(circle at 96% 22%, #73d8ff 0, transparent 34rem), radial-gradient(circle at 48% 92%, #ffd686 0, transparent 32rem), linear-gradient(135deg, #ffd1dc 0%, #cab9ef 48%, #98e1ff 100%);
+}
+.topbar { background: rgba(255,255,255,.82); color: var(--ink); border-color: rgba(255,255,255,.7); box-shadow: 0 8px 35px rgba(64,54,103,.09); }
+.brand { color: var(--ink); }
+.brand-mark { background: linear-gradient(135deg, #ff4f6d, #ff8a4c); color: white; }
+.language-switch { border-color: rgba(16,18,37,.1); background: rgba(16,18,37,.06); }
+.language-button { color: var(--ink); }
+.intro { background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,255,255,.72)); }
+.menu-card { border-color: rgba(255,255,255,.86); background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(255,247,249,.87)); color: var(--ink); box-shadow: 0 18px 45px rgba(59,50,98,.14); }
+.dish-price, .selected-row small, .total-row strong, .detail-price { color: #e94861; }
+.panel-card { background: linear-gradient(165deg, #fffefe, #fff4f6); color: var(--ink); box-shadow: -20px 0 60px rgba(48,40,78,.2); }
+.panel-head, .selected-row { border-color: rgba(16,18,37,.1); }
+.empty-selection { color: var(--muted); }
+.clear-button { border-color: rgba(16,18,37,.14); color: var(--ink); background: rgba(255,255,255,.55); }
+.detail-card { background: linear-gradient(150deg, #fffefe, #fff3f6); color: var(--ink); }
+.detail-add { color: white; }
+.note-field textarea { background: white; }
+.quantity button, .icon-button { background: white; color: var(--ink); }
