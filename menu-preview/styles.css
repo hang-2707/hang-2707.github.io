@@ -227,3 +227,40 @@ body {
 .detail-add { color: white; }
 .note-field textarea { background: white; }
 .quantity button, .icon-button { background: white; color: var(--ink); }
+
+/* Appetite palette: tomato red + honey yellow */
+:root {
+  --accent: #ef3f32;
+  --accent-soft: #ffc83d;
+  --berry: #d92f24;
+}
+body {
+  background: radial-gradient(circle at 8% 7%, #ff7a66 0, transparent 29rem), radial-gradient(circle at 94% 18%, #ffd84f 0, transparent 34rem), radial-gradient(circle at 50% 90%, #ffae35 0, transparent 34rem), linear-gradient(135deg, #fff2c2 0%, #ffc95b 52%, #ff8268 100%);
+}
+.brand-mark, .selection-button, .detail-add {
+  background: linear-gradient(135deg, #e93428, #ff6544);
+}
+.language-button.active {
+  background: #ffc83d;
+  color: #4a2100;
+}
+.intro {
+  background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,248,211,.82));
+  border-color: rgba(255,255,255,.9);
+}
+.eyebrow { color: #b92d1f; }
+.view-button.active { background: linear-gradient(135deg, #ef3f32, #ff6a3d); }
+.menu-card {
+  background: linear-gradient(145deg, rgba(255,255,255,.98), rgba(255,250,226,.94));
+  box-shadow: 0 18px 45px rgba(151,67,26,.16);
+}
+.dish-price, .selected-row small, .total-row strong, .detail-price { color: #d72e20; }
+.add-button {
+  background: linear-gradient(135deg, #f04432, #ff703d);
+  box-shadow: 0 8px 22px rgba(225,55,36,.3);
+}
+.panel-card, .detail-card { background: linear-gradient(160deg, #ffffff, #fff7d9); }
+.copy-button { background: linear-gradient(135deg, #d92f24, #ef4d2f); }
+.chef-card { background: linear-gradient(145deg, #ffe05a, #ffad32); }
+.contact-card { background: linear-gradient(145deg, #ff765e, #ef3f32); color: white; }
+.contact-card .eyebrow, .contact-card a, .contact-card span { color: white; }
