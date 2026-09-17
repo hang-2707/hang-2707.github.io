@@ -61,12 +61,31 @@
       </div>
       <div class="selected-items" id="selectedItems"></div>
       <label class="note-field">
-        <span data-i18n="note">Note</span>
-        <textarea id="orderNote" rows="3" placeholder="Ex. : livraison à 18h30, peu épicé..."></textarea>
+        <span class="sr-only" data-i18n="note">Note</span>
+        <textarea id="orderNote" rows="3" placeholder=""></textarea>
       </label>
       <div class="total-row"><span data-i18n="subtotal">Sous-total</span><strong id="selectionTotal">0 ₫</strong></div>
       <button class="copy-button" id="copySelection" type="button" data-i18n="copy">Copier la liste</button>
       <button class="clear-button" id="clearSelection" type="button" data-i18n="clear">Tout effacer</button>
+    </div>
+  </aside>
+
+  <aside class="detail-panel" id="detailPanel" aria-hidden="true">
+    <div class="detail-backdrop" data-close-detail></div>
+    <div class="detail-card" role="dialog" aria-modal="true" aria-labelledby="detailName">
+      <button class="icon-button detail-close" type="button" data-close-detail aria-label="Close">×</button>
+      <div class="detail-gallery">
+        <div class="detail-image-wrap" id="detailImageWrap"></div>
+        <button class="gallery-arrow gallery-prev" id="galleryPrev" type="button" aria-label="Previous image">‹</button>
+        <button class="gallery-arrow gallery-next" id="galleryNext" type="button" aria-label="Next image">›</button>
+        <div class="gallery-dots" id="galleryDots"></div>
+      </div>
+      <div class="detail-info">
+        <p class="eyebrow" data-i18n="dishDetails">Détails du plat</p>
+        <h2 id="detailName"></h2>
+        <p class="detail-price" id="detailPrice"></p>
+        <button class="detail-add" id="detailAdd" type="button"><span data-i18n="addOrder">Ajouter</span><b>+</b></button>
+      </div>
     </div>
   </aside>
 
