@@ -14,16 +14,18 @@
       intro: "Choisissez vos plats, ajoutez une note et envoyez-nous votre liste.", menu: "Menu",
       yourList: "Votre liste", chosen: "Plats choisis", note: "Note", subtotal: "Sous-total",
       copy: "Copier la liste", clear: "Tout effacer", empty: "Aucun plat sélectionné.<br>Appuyez sur + pour ajouter un plat.",
-      notePlaceholder: "Ex. : livraison à 18h30, peu épicé...", added: "Ajouté à votre commande", copied: "Liste copiée",
-      noItems: "Vous n’avez sélectionné aucun plat", copyTitle: "LISTE DE COMMANDE", noteLabel: "Note", copyFail: "Impossible de copier automatiquement"
+      added: "Ajouté à votre commande", copied: "Liste copiée",
+      noItems: "Vous n’avez sélectionné aucun plat", copyTitle: "LISTE DE COMMANDE", noteLabel: "Note", copyFail: "Impossible de copier automatiquement",
+      dishDetails: "Détails du plat", addOrder: "Ajouter"
     },
     en: {
       selected: "Selected", eyebrow: "Today’s dishes", title: "What shall<br>we eat?",
       intro: "Choose your dishes, add a note and send us your list.", menu: "Menu",
       yourList: "Your list", chosen: "Selected dishes", note: "Note", subtotal: "Subtotal",
       copy: "Copy order list", clear: "Clear all", empty: "No dishes selected.<br>Press + to add a dish.",
-      notePlaceholder: "E.g. delivery at 6:30 pm, mildly spicy...", added: "Added to your order", copied: "Order list copied",
-      noItems: "You haven’t selected any dishes", copyTitle: "ORDER LIST", noteLabel: "Note", copyFail: "Unable to copy automatically"
+      added: "Added to your order", copied: "Order list copied",
+      noItems: "You haven’t selected any dishes", copyTitle: "ORDER LIST", noteLabel: "Note", copyFail: "Unable to copy automatically",
+      dishDetails: "Dish details", addOrder: "Add to order"
     }
   };
 
@@ -34,6 +36,9 @@
   const total = document.querySelector("#selectionTotal");
   const note = document.querySelector("#orderNote");
   const toast = document.querySelector("#toast");
+  const detailPanel = document.querySelector("#detailPanel");
+  let detailItem = null;
+  let detailImageIndex = 0;
 
   function dishName(item) { return language === "fr" ? item.nameFr : item.nameEn; }
 
@@ -49,9 +54,9 @@
 
   function renderMenu() {
     grid.innerHTML = items.map(item => `
-      <article class="menu-card">
+      <article class="menu-card" data-detail="${item.id}" tabindex="0" role="button">
         <div class="dish-image">
-          <img src="${item.image}" alt="${dishName(item)}" loading="lazy">
+          <img src="${item.images[0]}" alt="${dishName(item)}" loading="lazy">
         </div>
         <div class="dish-body">
           <div>
@@ -101,7 +106,7 @@
     document.documentElement.lang = language;
     document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t[el.dataset.i18n]; });
     document.querySelectorAll("[data-i18n-html]").forEach(el => { el.innerHTML = t[el.dataset.i18nHtml]; });
-    note.placeholder = t.notePlaceholder;
+    note.placeholder = "";
     document.querySelectorAll("[data-lang]").forEach(button => {
       const active = button.dataset.lang === language;
       button.classList.toggle("active", active);
@@ -109,6 +114,54 @@
     });
     renderMenu();
     renderSelection();
+    if (detailItem) renderDetail();
+  }
+
+  function renderDetail() {
+    if (!detailItem) return;
+    const images = detailItem.images || [];
+    document.querySelector("#detailName").textContent = dishName(detailItem);
+    document.querySelector("#detailPrice").textContent = money.format(detailItem.price);
+    document.querySelector("#detailImageWrap").innerHTML = images.map((src, index) => `
+      <div class="detail-slide${index === detailImageIndex ? " active" : ""}">
+        <img src="${src}" alt="${dishName(detailItem)} — ${index + 1}">
+      </div>`).join("");
+    document.querySelector("#galleryDots").innerHTML = images.map((_, index) => `
+      <button class="gallery-dot${index === detailImageIndex ? " active" : ""}" type="button" data-image-index="${index}" aria-label="Image ${index + 1}"></button>`).join("");
+    document.querySelectorAll(".detail-slide img").forEach(img => {
+      const markMissing = () => {
+        img.parentElement.classList.add("no-image");
+        img.parentElement.textContent = dishName(detailItem);
+      };
+      img.addEventListener("error", markMissing, { once: true });
+      if (img.complete && img.naturalWidth === 0) markMissing();
+    });
+    const showArrows = images.length > 1;
+    document.querySelector("#galleryPrev").hidden = !showArrows;
+    document.querySelector("#galleryNext").hidden = !showArrows;
+  }
+
+  function openDetail(id) {
+    detailItem = items.find(item => item.id === id);
+    if (!detailItem) return;
+    detailImageIndex = 0;
+    renderDetail();
+    detailPanel.classList.add("open");
+    detailPanel.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    detailPanel.querySelector(".detail-close").focus();
+  }
+
+  function closeDetail() {
+    detailPanel.classList.remove("open");
+    detailPanel.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function changeDetailImage(amount) {
+    if (!detailItem?.images?.length) return;
+    detailImageIndex = (detailImageIndex + amount + detailItem.images.length) % detailItem.images.length;
+    renderDetail();
   }
 
   function openPanel() {
@@ -135,13 +188,29 @@
   document.addEventListener("click", event => {
     const add = event.target.closest("[data-add]");
     const minus = event.target.closest("[data-minus]");
-    if (add) changeQuantity(add.dataset.add, 1);
+    if (add) {
+      changeQuantity(add.dataset.add, 1);
+      return;
+    }
     if (minus) changeQuantity(minus.dataset.minus, -1);
     if (event.target.closest("[data-close-panel]")) closePanel();
+    if (event.target.closest("[data-close-detail]")) closeDetail();
+    const detail = event.target.closest("[data-detail]");
+    if (detail) openDetail(detail.dataset.detail);
+    const dot = event.target.closest("[data-image-index]");
+    if (dot) { detailImageIndex = Number(dot.dataset.imageIndex); renderDetail(); }
   });
 
   document.querySelector("#openSelection").addEventListener("click", openPanel);
-  document.addEventListener("keydown", event => { if (event.key === "Escape" && panel.classList.contains("open")) closePanel(); });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && panel.classList.contains("open")) closePanel();
+    if (event.key === "Escape" && detailPanel.classList.contains("open")) closeDetail();
+    if ((event.key === "Enter" || event.key === " ") && event.target.matches("[data-detail]")) { event.preventDefault(); openDetail(event.target.dataset.detail); }
+  });
+
+  document.querySelector("#galleryPrev").addEventListener("click", () => changeDetailImage(-1));
+  document.querySelector("#galleryNext").addEventListener("click", () => changeDetailImage(1));
+  document.querySelector("#detailAdd").addEventListener("click", () => { if (detailItem) changeQuantity(detailItem.id, 1); });
 
   document.querySelectorAll("[data-view]").forEach(button => button.addEventListener("click", () => {
     const view = button.dataset.view;
