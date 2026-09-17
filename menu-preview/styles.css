@@ -264,3 +264,27 @@ body {
 .chef-card { background: linear-gradient(145deg, #ffe05a, #ffad32); }
 .contact-card { background: linear-gradient(145deg, #ff765e, #ef3f32); color: white; }
 .contact-card .eyebrow, .contact-card a, .contact-card span { color: white; }
+
+.brand-mark {
+  position: relative;
+  width: 2.35rem;
+  overflow: visible;
+  font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1;
+  text-shadow: 1px 2px 0 rgba(110,24,12,.18);
+  transform: rotate(-7deg);
+}
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  right: -.12rem;
+  bottom: .2rem;
+  width: 1.35rem;
+  height: 2px;
+  border-radius: 999px;
+  background: #ffd34b;
+  transform: rotate(-12deg);
+}
