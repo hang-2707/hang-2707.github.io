@@ -15,21 +15,27 @@
       <span class="brand-mark" aria-hidden="true">M</span>
       <span>MENU</span>
     </a>
-    <button class="selection-button" id="openSelection" type="button" aria-haspopup="dialog">
-      Đã chọn <span id="selectionCount">0</span>
-    </button>
+    <div class="header-actions">
+      <div class="language-switch" role="group" aria-label="Language">
+        <button class="language-button active" type="button" data-lang="fr" aria-pressed="true">FR</button>
+        <button class="language-button" type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="selection-button" id="openSelection" type="button" aria-haspopup="dialog">
+        <span data-i18n="selected">Sélection</span> <span id="selectionCount">0</span>
+      </button>
+    </div>
   </header>
 
   <main id="top">
     <section class="intro" aria-labelledby="pageTitle">
-      <p class="eyebrow">Món ngon mỗi ngày</p>
-      <h1 id="pageTitle">Hôm nay<br>ăn gì?</h1>
-      <p class="intro-copy">Chọn món bạn thích, ghi chú thêm nếu cần rồi gửi danh sách cho chúng tôi.</p>
+      <p class="eyebrow" data-i18n="eyebrow">Les plats du jour</p>
+      <h1 id="pageTitle" data-i18n-html="title">On mange<br>quoi ?</h1>
+      <p class="intro-copy" data-i18n="intro">Choisissez vos plats, ajoutez une note et envoyez-nous votre liste.</p>
     </section>
 
     <section class="menu-section" aria-labelledby="menuTitle">
       <div class="section-head">
-        <h2 id="menuTitle">Thực đơn</h2>
+        <h2 id="menuTitle" data-i18n="menu">Menu</h2>
         <div class="view-switch" role="group" aria-label="Kiểu hiển thị">
           <button class="view-button active" type="button" data-view="grid" aria-pressed="true" title="Dạng ô lưới">
             <span aria-hidden="true">▦</span><span class="sr-only">Ô lưới</span>
@@ -48,19 +54,19 @@
     <div class="panel-card" role="dialog" aria-modal="true">
       <div class="panel-head">
         <div>
-          <p class="eyebrow">Danh sách của bạn</p>
-          <h2 id="selectionTitle">Món đã chọn</h2>
+          <p class="eyebrow" data-i18n="yourList">Votre liste</p>
+          <h2 id="selectionTitle" data-i18n="chosen">Plats choisis</h2>
         </div>
         <button class="icon-button" type="button" data-close-panel aria-label="Đóng">×</button>
       </div>
       <div class="selected-items" id="selectedItems"></div>
       <label class="note-field">
-        <span>Ghi chú</span>
-        <textarea id="orderNote" rows="3" placeholder="Ví dụ: giao lúc 18:30, ít cay..."></textarea>
+        <span data-i18n="note">Note</span>
+        <textarea id="orderNote" rows="3" placeholder="Ex. : livraison à 18h30, peu épicé..."></textarea>
       </label>
-      <div class="total-row"><span>Tạm tính</span><strong id="selectionTotal">0 ₫</strong></div>
-      <button class="copy-button" id="copySelection" type="button">Sao chép danh sách</button>
-      <button class="clear-button" id="clearSelection" type="button">Xóa tất cả</button>
+      <div class="total-row"><span data-i18n="subtotal">Sous-total</span><strong id="selectionTotal">0 ₫</strong></div>
+      <button class="copy-button" id="copySelection" type="button" data-i18n="copy">Copier la liste</button>
+      <button class="clear-button" id="clearSelection" type="button" data-i18n="clear">Tout effacer</button>
     </div>
   </aside>
 
