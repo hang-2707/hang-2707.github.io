@@ -162,3 +162,47 @@ button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outlin
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
+
+/* Bright food-inspired theme */
+:root {
+  --ink: #101225;
+  --muted: #696b80;
+  --paper: #fff8f7;
+  --card: #111326;
+  --accent: #ff5d5d;
+  --accent-soft: #ffb65c;
+  --berry: #ff4f6d;
+  --line: rgba(16,18,37,.14);
+}
+body {
+  background: radial-gradient(circle at 10% 8%, rgba(255,126,142,.94) 0, transparent 33rem), radial-gradient(circle at 92% 28%, rgba(71,192,255,.94) 0, transparent 36rem), linear-gradient(135deg, #ef85a0 0%, #b699ce 48%, #67c9f5 100%);
+  background-attachment: fixed;
+}
+.topbar { background: rgba(16,18,37,.9); color: white; border-color: rgba(255,255,255,.12); }
+.brand { color: white; }
+.brand-mark { background: white; color: var(--accent); }
+.language-switch { border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.1); }
+.language-button { color: white; }
+.selection-button { background: linear-gradient(135deg, #ff4f6d, #ff7055); box-shadow: 0 8px 24px rgba(255,79,109,.3); }
+.intro { margin-top: clamp(1rem, 4vw, 2.5rem); padding: clamp(2.6rem, 7vw, 5rem); border: 1px solid rgba(255,255,255,.25); border-radius: 2rem; background: linear-gradient(135deg, rgba(255,255,255,.86), rgba(255,255,255,.58)); box-shadow: 0 24px 70px rgba(35,29,73,.18); backdrop-filter: blur(18px); }
+.menu-section { margin-top: clamp(2.5rem, 6vw, 5rem); }
+.view-switch { border-color: rgba(255,255,255,.18); background: var(--ink); }
+.view-button { color: white; }
+.view-button.active { background: var(--accent); color: white; }
+.menu-card { border-color: rgba(255,255,255,.1); background: linear-gradient(150deg, #17192e, #0d0f20); color: white; box-shadow: 0 18px 45px rgba(16,18,37,.25); }
+.dish-price, .selected-row small, .total-row strong, .detail-price { color: #ffb98d; }
+.add-button { background: linear-gradient(135deg, #ff7658, #ff425f); color: white; box-shadow: 0 7px 20px rgba(255,66,95,.28); }
+.panel-card { background: linear-gradient(165deg, #17192e, #0d0f20); color: white; }
+.panel-head, .selected-row { border-color: rgba(255,255,255,.13); }
+.empty-selection { color: rgba(255,255,255,.62); }
+.clear-button { border-color: rgba(255,255,255,.18); color: white; }
+.detail-card { background: linear-gradient(155deg, #17192e, #0d0f20); color: white; }
+.detail-add { background: linear-gradient(135deg, #ff4f6d, #ff7055); }
+.chef-card { background: linear-gradient(145deg, rgba(255,205,111,.95), rgba(255,127,103,.94)); }
+.contact-card { background: linear-gradient(145deg, rgba(117,224,245,.94), rgba(123,142,244,.94)); }
+.footer-card { border-color: rgba(255,255,255,.35); box-shadow: 0 22px 55px rgba(35,29,73,.2); }
+.footer-card .eyebrow { color: rgba(16,18,37,.7); }
+.footer-card > p:last-child { color: rgba(16,18,37,.72); }
+@media (max-width: 760px) {
+  .intro { padding: 2.2rem 1.2rem; border-radius: 0 0 1.6rem 1.6rem; margin-top: 0; }
+}
