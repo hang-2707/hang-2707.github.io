@@ -40,7 +40,7 @@ window.MENU_ITEMS = [
     nameFr: "Assortiment de nems et rouleaux de printemps",
     nameEn: "Spring roll assortment",
     price: 10,
-    images: ["images/menu/6.webp", "images/menu/6-1.webp", "images/menu/6-2.webp", "images/menu/6-3.webp"]
+    images: ["images/menu/6-new-1.webp", "images/menu/6-new-2.webp", "images/menu/6-new-3.webp"]
   },
   {
     id: "mon-07",
@@ -48,5 +48,12 @@ window.MENU_ITEMS = [
     nameEn: "Cantonese fried rice",
     price: 8,
     images: ["images/menu/7.webp", "images/menu/7-1.webp"]
+  },
+  {
+    id: "mon-08",
+    nameFr: "Bò Bún",
+    nameEn: "Bò Bún",
+    price: 12,
+    images: ["images/menu/8-1.webp", "images/menu/8-2.webp", "images/menu/8-3.webp"]
   }
 ];
