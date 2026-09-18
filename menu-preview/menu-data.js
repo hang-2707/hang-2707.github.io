@@ -30,8 +30,8 @@ window.MENU_ITEMS = [
   },
   {
     id: "mon-05",
-    nameFr: "Phở au bœuf ou au poulet",
-    nameEn: "Beef or chicken phở",
+    nameFr: "Pho au bœuf ou au poulet",
+    nameEn: "Beef or chicken Pho",
     price: 12,
     images: ["images/menu/5.webp", "images/menu/5-1.webp", "images/menu/5-2.webp"]
   },
@@ -51,8 +51,8 @@ window.MENU_ITEMS = [
   },
   {
     id: "mon-08",
-    nameFr: "Bò Bún",
-    nameEn: "Bò Bún",
+    nameFr: "Bo Bun",
+    nameEn: "Bo Bun",
     price: 12,
     images: ["images/menu/8-1.webp", "images/menu/8-2.webp", "images/menu/8-3.webp"]
   }
