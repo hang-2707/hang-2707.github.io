@@ -39,7 +39,7 @@ window.MENU_ITEMS = [
     id: "mon-06",
     nameFr: "Assortiment",
     nameEn: "Assortiment",
-    price: 10,
+    price: 13,
     images: ["images/menu/6-new-1.webp", "images/menu/6-new-2.webp", "images/menu/6-new-3.webp"]
   },
   {
