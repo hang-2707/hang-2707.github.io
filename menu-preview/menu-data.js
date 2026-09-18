@@ -51,9 +51,9 @@ window.MENU_ITEMS = [
   },
   {
     id: "mon-08",
-    nameFr: "Bo Bun",
-    nameEn: "Bo Bun",
+    nameFr: "Vermicelles au bœuf, sauce soja",
+    nameEn: "Beef vermicelli with soy sauce",
     price: 12,
-    images: ["images/menu/8-1.webp", "images/menu/8-2.webp", "images/menu/8-3.webp"]
+    images: ["images/menu/8-1.webp", "images/menu/8-2.webp"]
   }
 ];
