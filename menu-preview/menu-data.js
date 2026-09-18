@@ -37,8 +37,8 @@ window.MENU_ITEMS = [
   },
   {
     id: "mon-06",
-    nameFr: "Assortiment de nems et rouleaux de printemps",
-    nameEn: "Spring roll assortment",
+    nameFr: "Assortiment",
+    nameEn: "Assortiment",
     price: 10,
     images: ["images/menu/6-new-1.webp", "images/menu/6-new-2.webp", "images/menu/6-new-3.webp"]
   },
